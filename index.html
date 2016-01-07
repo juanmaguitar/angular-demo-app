@@ -6,6 +6,9 @@
   </head>
   <body>
     <div ng-controller="StudentController">
+
+      <button ng-click='showMsg()'>Whose info is this?</button>
+
       <h3>Full list</h3>
       <ul>
         <li ng-repeat="subject in student.subjects">

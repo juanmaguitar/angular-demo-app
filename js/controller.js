@@ -23,6 +23,10 @@ angular.module('collegeControllers',[])
       return "Greetings " + $scope.student.fullName();
     }
 
+    $scope.showMsg = function(){
+      alert( "This is the student: " + $scope.student.fullName() );
+    }
+
   });
 
 

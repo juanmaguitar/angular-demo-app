@@ -10,6 +10,11 @@ angular.module('myControllersContainer',[])
     $scope.firstName = 'Sean';
     $scope.lastName = 'Citizen';
 
+    $scope.greeting = function(){
+      return 'Greetings ' + $scope.firstName + ' ' + $scope.lastName;
+    }
+
+
   })
 
   /* MyOtherController */

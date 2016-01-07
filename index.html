@@ -2,6 +2,12 @@
 <html ng-app="mainApp">
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <style>
+      div { border:1px solid #CCC; padding: 10px;}
+      div:nth-child(2) { background: #E3F2FD;  }
+      div:nth-child(3) { background: #FFEBEE; }
+
+    </style>
   </head>
   <body>
 
@@ -17,6 +23,7 @@
         <li>Name : {{ firstName }}</li>
         <li>Last Name : {{ lastName }}</li>
       </ul>
+      <p>{{ greeting() }}</p>
     </div>
 
     <div ng-controller="MyOtherController">

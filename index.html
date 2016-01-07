@@ -2,7 +2,11 @@
 <html ng-app='collegeApp'>
   <head>
     <title>My Angular App</title>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <style>
+      .filtered-info { border:1px solid #CCC;  padding:10px; margin: 10px 0;}
+      form {}
+    </style>
   </head>
   <body>
     <div ng-controller="StudentController">
@@ -10,12 +14,35 @@
       <button ng-click='showResults()'>{{ results ? 'Hide' : 'Show' }} Results</button>
 
       <div ng-show="results">
-        <h3>Full list</h3>
-        <ul>
-          <li ng-repeat="subject in student.subjects">
-            result for: <strong>{{subject.name}}</strong> = <em>{{subject.marks}}</em>
-          </li>
-        </ul>
+
+        <div class="filtered-info">
+          <form>
+            <p>Filter (Subject Name) selected: {{ query }}</p>
+            <input ng-model="query" type="text" placeholder="Filter by Name" autofocus />
+          </form>
+
+          <h3>Full list</h3>
+          <ul>
+            <li ng-repeat="subject in student.subjects | filter : {name : query}">
+              result for: <strong>{{subject.name}}</strong> = <em>{{subject.marks}}</em>
+            </li>
+          </ul>
+        </div>
+
+        <div class="filtered-info">
+          <form>
+            <p>Filter (mark more than) selected: {{ minMark }}</p>
+            <input ng-model="minMark" type="text" placeholder="Filter by Name" autofocus />
+          </form>
+
+          <h3>Full list</h3>
+          <ul>
+            <li ng-repeat="subject in student.subjects | filter : aGradeFilter">
+              result for: <strong>{{subject.name}}</strong> = <em>{{subject.marks}}</em>
+            </li>
+          </ul>
+        </div>
+
         <h3>More than 70</h3>
         <ul>
           <!-- hide those elements that fullfill a condition-->

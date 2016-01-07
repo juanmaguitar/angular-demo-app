@@ -32,6 +32,13 @@ angular.module('collegeControllers',[])
       return ( $scope.results = $scope.results ? false : true )
     }
 
+    $scope.query = '';
+    $scope.minMark = 0;
+
+    $scope.aGradeFilter = function(subject) {
+      return ( subject.marks >= $scope.minMark  )
+    }
+
   });
 
 

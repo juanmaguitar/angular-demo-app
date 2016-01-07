@@ -27,6 +27,11 @@ angular.module('collegeControllers',[])
       alert( "This is the student: " + $scope.student.fullName() );
     }
 
+    $scope.results = true;
+    $scope.showResults = function() {
+      return ( $scope.results = $scope.results ? false : true )
+    }
+
   });
 
 

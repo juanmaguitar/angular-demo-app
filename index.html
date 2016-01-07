@@ -7,29 +7,30 @@
   <body>
     <div ng-controller="StudentController">
 
-      <button ng-click='showMsg()'>Whose info is this?</button>
+      <button ng-click='showResults()'>{{ results ? 'Hide' : 'Show' }} Results</button>
 
-      <h3>Full list</h3>
-      <ul>
-        <li ng-repeat="subject in student.subjects">
-          result for: <strong>{{subject.name}}</strong> = <em>{{subject.marks}}</em>
-        </li>
-      </ul>
-      <h3>More than 70</h3>
-      <ul>
-        <!-- hide those elements that fullfill a condition-->
-        <li ng-repeat="subject in student.subjects" ng-hide="{{ subject.marks < 70 }}">
-          result for: <strong>{{subject.name}}</strong> = <em>{{subject.marks}}</em>
-        </li>
-      </ul>
-      <h3>Less than 70</h3>
-      <ul>
-        <!-- show ONLY those elements that fullfill a condition-->
-        <li ng-repeat="subject in student.subjects" ng-show="{{ subject.marks < 70 }}">
-          result for: <strong>{{subject.name}}</strong> = <em>{{subject.marks}}</em>
-        </li>
-      </ul>
-
+      <div ng-show="results">
+        <h3>Full list</h3>
+        <ul>
+          <li ng-repeat="subject in student.subjects">
+            result for: <strong>{{subject.name}}</strong> = <em>{{subject.marks}}</em>
+          </li>
+        </ul>
+        <h3>More than 70</h3>
+        <ul>
+          <!-- hide those elements that fullfill a condition-->
+          <li ng-repeat="subject in student.subjects" ng-hide="{{ subject.marks < 70 }}">
+            result for: <strong>{{subject.name}}</strong> = <em>{{subject.marks}}</em>
+          </li>
+        </ul>
+        <h3>Less than 70</h3>
+        <ul>
+          <!-- show ONLY those elements that fullfill a condition-->
+          <li ng-repeat="subject in student.subjects" ng-show="{{ subject.marks < 70 }}">
+            result for: <strong>{{subject.name}}</strong> = <em>{{subject.marks}}</em>
+          </li>
+        </ul>
+      </div>
     </div>
   </body>
   <script src='js/app.js'></script>

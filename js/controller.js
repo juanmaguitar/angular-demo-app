@@ -1,30 +1,28 @@
-angular.module('myControllersContainer',[])
+angular.module('collegeControllers',[])
 
-  /* MyController */
-  .controller('MyController',function($scope) {
-    // controller logic here
-    console.log ("MyController logic...")
+  .controller('StudentController',function($scope) {
 
-    // $scope is shared w/ the view (piece of HTML)
-    // that uses this controller (ng-controller)
-    $scope.firstName = 'Sean';
-    $scope.lastName = 'Citizen';
+    var student = {
+      firstName: "Rich",
+      lastName: "Richie",
+      fees: 500,
+      subjects: [
+        {name: 'Physics', marks: 70},
+        {name: 'Chemistry',marks: 80},
+        {name: 'Math',marks: 65},
+        {name: 'English',marks: 75},
+        {name: 'Hindi',marks: 67}
+      ],
+      fullName: function () {
+        return this.firstName + " " + this.lastName;
+      }
+    };
 
+    $scope.student = student;
     $scope.greeting = function(){
-      return 'Greetings ' + $scope.firstName + ' ' + $scope.lastName;
+      return "Greetings " + $scope.student.fullName();
     }
 
-
-  })
-
-  /* MyOtherController */
-  .controller('MyOtherController',function($scope) {
-    // my other controller logic here
-    console.log ("MyOtherController logic...")
-
-    // every controller manages its own $scope
-
-    $scope.firstName = 'JuanMa';
-    $scope.lastName = 'Guitar';
-
   });
+
+

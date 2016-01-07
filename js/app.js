@@ -1,3 +1,3 @@
 // Application Module
 
-angular.module("mainApp", ['myControllersContainer']);
+angular.module("collegeApp", ['collegeControllers']);

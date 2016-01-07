@@ -19,11 +19,17 @@
           <form>
             <p>Filter (Subject Name) selected: {{ query }}</p>
             <input ng-model="query" type="text" placeholder="Filter by Name" autofocus />
+            <p>Order by</p>
+            <select ng-model="customOrder">
+              <option value="name">name</option>
+              <option value="marks">marks</option>
+            </select>
+
           </form>
 
           <h3>Full list</h3>
           <ul>
-            <li ng-repeat="subject in student.subjects | filter : {name : query}">
+            <li ng-repeat="subject in student.subjects | filter : {name : query} | orderBy: customOrder">
               result for: <strong>{{subject.name}}</strong> = <em>{{subject.marks}}</em>
             </li>
           </ul>
